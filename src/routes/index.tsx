@@ -6,8 +6,6 @@ import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Benefits } from "@/components/sections/Benefits";
 import { ProductShowcase } from "@/components/sections/ProductShowcase";
 import { OnTheRoad } from "@/components/sections/OnTheRoad";
-import { FoodHeating } from "@/components/sections/FoodHeating";
-import { Comparison } from "@/components/sections/Comparison";
 import { Pricing } from "@/components/sections/Pricing";
 import { Faq } from "@/components/sections/Faq";
 import { Footer } from "@/components/sections/Footer";
@@ -41,8 +39,6 @@ function Index() {
         <Benefits />
         <ProductShowcase />
         <OnTheRoad />
-        <FoodHeating />
-        <Comparison />
         <Pricing />
         <Faq />
       </main>

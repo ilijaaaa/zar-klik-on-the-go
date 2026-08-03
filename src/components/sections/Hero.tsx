@@ -62,10 +62,6 @@ export function Hero() {
 
         <Reveal delay={200} className="relative">
           <div className="relative mx-auto max-w-lg">
-            <div
-              aria-hidden="true"
-              className="absolute inset-x-6 bottom-6 top-10 rounded-[2.5rem] surface-warm border border-border shadow-lift"
-            />
             <img
               src={productHero.url}
               width={1520}
