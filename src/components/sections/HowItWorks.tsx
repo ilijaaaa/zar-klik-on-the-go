@@ -38,7 +38,7 @@ export function HowItWorks() {
   const current = steps.find((s) => s.id === active) ?? steps[0]!;
 
   return (
-    <section id="kako-funkcionise" className="scroll-mt-24 py-16 lg:py-24">
+    <section id="kako-funkcionise" className="scroll-mt-24 py-14 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <Reveal className="max-w-2xl">
           <h2 className="text-balance text-3xl sm:text-4xl lg:text-5xl">

@@ -1,4 +1,4 @@
-import { Clock, Truck, UtensilsCrossed, MapPinOff, Lightbulb } from "lucide-react";
+import { Clock, Truck, UtensilsCrossed, MapPinOff } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
 const causes = [
@@ -10,7 +10,7 @@ const causes = [
 
 export function Problem() {
   return (
-    <section id="problem" className="py-16 lg:py-24">
+    <section id="problem" className="py-14 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
           <div>
@@ -49,16 +49,6 @@ export function Problem() {
           </ul>
         </div>
 
-        <Reveal delay={120}>
-          <div className="mt-10 flex items-start gap-4 rounded-3xl border border-primary/25 surface-warm p-6 shadow-soft sm:items-center sm:p-8">
-            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-ember text-ember-foreground">
-              <Lightbulb className="h-5 w-5" aria-hidden="true" />
-            </span>
-            <p className="min-w-0 font-display text-lg font-bold text-primary sm:text-2xl">
-              Problem nije nedostatak hrane, već praktičan pristup toplom obroku.
-            </p>
-          </div>
-        </Reveal>
       </div>
     </section>
   );

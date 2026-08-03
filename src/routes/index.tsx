@@ -5,7 +5,6 @@ import { Problem } from "@/components/sections/Problem";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Benefits } from "@/components/sections/Benefits";
 import { ProductShowcase } from "@/components/sections/ProductShowcase";
-import { OnTheRoad } from "@/components/sections/OnTheRoad";
 import { Pricing } from "@/components/sections/Pricing";
 import { Faq } from "@/components/sections/Faq";
 import { Footer } from "@/components/sections/Footer";
@@ -38,7 +37,6 @@ function Index() {
         <HowItWorks />
         <Benefits />
         <ProductShowcase />
-        <OnTheRoad />
         <Pricing />
         <Faq />
       </main>
