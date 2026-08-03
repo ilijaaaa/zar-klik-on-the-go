@@ -39,8 +39,6 @@ function Index() {
         <Benefits />
         <ProductShowcase />
         <OnTheRoad />
-        <FoodHeating />
-        <Comparison />
         <Pricing />
         <Faq />
       </main>
