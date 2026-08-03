@@ -39,10 +39,6 @@ export function OnTheRoad() {
                 ))}
               </ul>
 
-              <p className="mt-7 text-sm text-muted-foreground">
-                Primarni korisnici su profesionalni vozači kamiona koji veći deo nedelje provode u
-                kabini.
-              </p>
             </Reveal>
 
             <div className="relative order-1 min-h-72 lg:order-2">

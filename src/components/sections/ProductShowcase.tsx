@@ -6,13 +6,10 @@ import { cn } from "@/lib/utils";
 import exploded from "@/assets/exploded.png.asset.json";
 import productHero from "@/assets/product-hero.png.asset.json";
 import cartridge from "@/assets/cartridge.png.asset.json";
-import step2 from "@/assets/step2.png.asset.json";
-import foodSolid from "@/assets/food-solid.png.asset.json";
 
 const parts = [
   { title: "Poklopac", text: "Uklonjivi poklopac zatvara posudu tokom nošenja i zagrevanja." },
   { title: "Aluminijumska posuda", text: "Deo u koji stavljaš obrok i iz kojeg jedeš." },
-  { title: "Pregrada za prenos toplote", text: "Razdvaja hranu od sistema za grejanje." },
   { title: "Jednokratni dodatak", text: "Zatvoreno pakovanje sa CaO i vodom koje pokreće zagrevanje." },
   { title: "Baza posude", text: "Nosi grejni deo i čini osnovu Žar Klik sistema." },
 ];
@@ -32,16 +29,6 @@ const gallery = [
     src: cartridge.url,
     alt: "Pakovanje jednokratnog grejnog dodatka Žar Klik",
     caption: "Jednokratni grejni dodatak u pakovanju",
-  },
-  {
-    src: step2.url,
-    alt: "Aluminijumska posuda za hranu sa poklopcem",
-    caption: "Aluminijumska posuda za obrok",
-  },
-  {
-    src: foodSolid.url,
-    alt: "Obrok od mesa i povrća pripremljen u posudi",
-    caption: "Obrok koji si poneo od kuće, u posudi",
   },
 ];
 
