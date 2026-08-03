@@ -16,7 +16,18 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:py-16">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr_1fr]">
           <div>
-            <Logo className="h-11 w-auto" />
+            <span className="flex items-center gap-2.5">
+              <img
+                src={logoMark.url}
+                alt="Žar Klik logo — posuda sa parom i klik simbolom"
+                className="h-11 w-auto shrink-0"
+                loading="lazy"
+              />
+              <span className="font-display text-xl font-extrabold tracking-tight text-primary-foreground">
+                ŽAR KLIK
+              </span>
+            </span>
+
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-primary-foreground/80">
               Žar Klik zagreva obrok koji si poneo od kuće — bez struje i otvorenog plamena.
             </p>
