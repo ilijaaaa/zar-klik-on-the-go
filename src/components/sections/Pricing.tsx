@@ -66,7 +66,7 @@ export function Pricing() {
   };
 
   return (
-    <section id="prijava" className="scroll-mt-24 py-16 lg:py-24">
+    <section id="cena" className="scroll-mt-24 py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <Reveal className="max-w-2xl">
           <h2 className="text-balance text-3xl sm:text-4xl lg:text-5xl">
@@ -128,7 +128,10 @@ export function Pricing() {
         </div>
 
         <Reveal delay={120}>
-          <div className="mt-10 grid gap-8 rounded-[2.5rem] border border-primary/25 surface-warm p-6 shadow-soft sm:p-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12">
+          <div
+            id="prijava"
+            className="mt-10 scroll-mt-24 grid gap-8 rounded-[2.5rem] border border-primary/25 surface-warm p-6 shadow-soft sm:p-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12"
+          >
             <div>
               <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary text-primary-foreground">
                 <ShieldQuestion className="h-5 w-5" aria-hidden="true" />

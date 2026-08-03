@@ -49,16 +49,6 @@ export function Problem() {
           </ul>
         </div>
 
-        <Reveal delay={120}>
-          <div className="mt-10 flex items-start gap-4 rounded-3xl border border-primary/25 surface-warm p-6 shadow-soft sm:items-center sm:p-8">
-            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-ember text-ember-foreground">
-              <Lightbulb className="h-5 w-5" aria-hidden="true" />
-            </span>
-            <p className="min-w-0 font-display text-lg font-bold text-primary sm:text-2xl">
-              Problem nije nedostatak hrane, već praktičan pristup toplom obroku.
-            </p>
-          </div>
-        </Reveal>
       </div>
     </section>
   );
