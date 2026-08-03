@@ -35,7 +35,7 @@ const steps = [
 
 export function HowItWorks() {
   const [active, setActive] = useState(1);
-  const current = steps.find((s) => s.id === active) ?? steps[0];
+  const current = steps.find((s) => s.id === active) ?? steps[0]!;
 
   return (
     <section id="kako-funkcionise" className="scroll-mt-24 py-16 lg:py-24">
