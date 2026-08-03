@@ -1,5 +1,6 @@
 import { Mail } from "lucide-react";
-import { Logo } from "@/components/Logo";
+import logoMark from "@/assets/logo-mark.png.asset.json";
+
 
 const links = [
   { href: "#problem", label: "Problem" },
