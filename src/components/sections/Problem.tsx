@@ -1,4 +1,4 @@
-import { Clock, Truck, UtensilsCrossed, MapPinOff, Lightbulb } from "lucide-react";
+import { Clock, Truck, UtensilsCrossed, MapPinOff } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
 const causes = [
@@ -10,7 +10,7 @@ const causes = [
 
 export function Problem() {
   return (
-    <section id="problem" className="py-16 lg:py-24">
+    <section id="problem" className="py-14 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
           <div>

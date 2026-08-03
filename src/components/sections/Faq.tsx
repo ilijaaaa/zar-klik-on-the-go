@@ -47,7 +47,7 @@ const faqs = [
 
 export function Faq() {
   return (
-    <section id="pitanja" className="scroll-mt-24 py-16 lg:py-24">
+    <section id="pitanja" className="scroll-mt-24 py-14 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
           <Reveal>
