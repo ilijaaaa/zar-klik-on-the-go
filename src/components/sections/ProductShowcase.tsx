@@ -4,7 +4,7 @@ import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import exploded from "@/assets/exploded.png.asset.json";
-import productHero from "@/assets/product-hero.png.asset.json";
+import productBox from "@/assets/product-box.png";
 import cartridge from "@/assets/cartridge.png.asset.json";
 
 const parts = [
@@ -16,7 +16,7 @@ const parts = [
 
 const gallery = [
   {
-    src: productHero.url,
+    src: productBox,
     alt: "Zatvorena Žar Klik posuda sa poklopcem i logotipom",
     caption: "Žar Klik posuda — zatvorena i spremna za nošenje",
   },
