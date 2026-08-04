@@ -5,10 +5,8 @@ import { Logo } from "@/components/Logo";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { href: "#kako-funkcionise", label: "Kako funkcioniše" },
-  { href: "#prednosti", label: "Prednosti" },
-  { href: "#proizvod", label: "Proizvod" },
   { href: "#cena", label: "Cena" },
+  { href: "#proizvod", label: "Šta dobijaš" },
   { href: "#pitanja", label: "Česta pitanja" },
 ];
 
