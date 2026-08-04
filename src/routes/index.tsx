@@ -30,11 +30,8 @@ function Index() {
       <Navbar />
       <main>
         <Hero />
-        <Problem />
-        <HowItWorks />
-        <Benefits />
-        <ProductShowcase />
         <Pricing />
+        <ProductShowcase />
         <Faq />
       </main>
       <Footer />
