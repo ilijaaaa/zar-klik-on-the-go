@@ -14,7 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import cartridge from "@/assets/cartridge.png.asset.json";
-import productHero from "@/assets/product-hero.png.asset.json";
+import productBox from "@/assets/product-box.png";
 
 const plans = [
   {
@@ -22,12 +22,11 @@ const plans = [
     price: "1.300",
     unit: "RSD",
     note: "Jednokratna kupovina, višekratna upotreba",
-    image: productHero.url,
+    image: productBox,
     alt: "Žar Klik posuda za zagrevanje obroka",
     icon: PackageCheck,
     items: [
       "Poklopac i aluminijumska posuda",
-      "Pregrada za prenos toplote",
       "Baza sa grejnim sistemom",
     ],
     featured: true,
