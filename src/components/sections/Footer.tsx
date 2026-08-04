@@ -3,10 +3,8 @@ import logoMark from "@/assets/logo-mark.png.asset.json";
 
 
 const links = [
-  { href: "#problem", label: "Problem" },
-  { href: "#kako-funkcionise", label: "Kako funkcioniše" },
+  { href: "#cena", label: "Cena" },
   { href: "#proizvod", label: "Proizvod" },
-  { href: "#prednosti", label: "Prednosti" },
   { href: "#pitanja", label: "Pitanja" },
 ];
 
