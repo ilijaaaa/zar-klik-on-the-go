@@ -2,17 +2,20 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/Logo";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { useT } from "@/i18n/LanguageProvider";
 import { cn } from "@/lib/utils";
 
-const links = [
-  { href: "#cena", label: "Cena" },
-  { href: "#proizvod", label: "Šta dobijaš" },
-  { href: "#pitanja", label: "Česta pitanja" },
-];
-
 export function Navbar() {
+  const t = useT();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const links = [
+    { href: "#cena", label: t.nav.cena },
+    { href: "#proizvod", label: t.nav.proizvod },
+    { href: "#pitanja", label: t.nav.pitanja },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -29,7 +32,7 @@ export function Navbar() {
       )}
     >
       <nav
-        aria-label="Glavna navigacija"
+        aria-label={t.nav.ariaMain}
         className={cn(
           "mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 transition-all duration-300 sm:px-6",
           scrolled ? "py-2.5" : "py-4",
@@ -53,8 +56,9 @@ export function Navbar() {
         </ul>
 
         <div className="flex shrink-0 items-center gap-2">
+          <LanguageSwitcher />
           <Button asChild variant="hero" size={scrolled ? "default" : "lg"} className="hidden sm:inline-flex">
-            <a href="#prijava">Želim Žar Klik</a>
+            <a href="#prijava">{t.nav.cta}</a>
           </Button>
           <Button
             variant="outline"
@@ -62,7 +66,7 @@ export function Navbar() {
             className="lg:hidden"
             aria-expanded={open}
             aria-controls="mobilni-meni"
-            aria-label={open ? "Zatvori meni" : "Otvori meni"}
+            aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
             onClick={() => setOpen((v) => !v)}
           >
             {open ? <X /> : <Menu />}
@@ -90,7 +94,7 @@ export function Navbar() {
           </ul>
           <Button asChild variant="hero" size="lg" className="mt-3 w-full">
             <a href="#prijava" onClick={() => setOpen(false)}>
-              Želim Žar Klik
+              {t.nav.cta}
             </a>
           </Button>
         </div>

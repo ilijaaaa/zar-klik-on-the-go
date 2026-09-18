@@ -1,14 +1,17 @@
 import { Mail } from "lucide-react";
 import logoMark from "@/assets/logo-mark.png.asset.json";
-
-
-const links = [
-  { href: "#cena", label: "Cena" },
-  { href: "#proizvod", label: "Proizvod" },
-  { href: "#pitanja", label: "Pitanja" },
-];
+import { useT } from "@/i18n/LanguageProvider";
+import { CONTACT_EMAIL } from "@/lib/contact-email";
 
 export function Footer() {
+  const t = useT();
+
+  const links = [
+    { href: "#cena", label: t.footer.links.cena },
+    { href: "#proizvod", label: t.footer.links.proizvod },
+    { href: "#pitanja", label: t.footer.links.pitanja },
+  ];
+
   return (
     <footer className="mt-8 border-t border-border surface-ember">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:py-16">
@@ -17,7 +20,7 @@ export function Footer() {
             <span className="flex items-center gap-2.5">
               <img
                 src={logoMark.url}
-                alt="Žar Klik logo — posuda sa parom i klik simbolom"
+                alt={t.logo.alt}
                 className="h-11 w-auto shrink-0"
                 loading="lazy"
               />
@@ -27,12 +30,14 @@ export function Footer() {
             </span>
 
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-primary-foreground/80">
-              Žar Klik zagreva obrok koji si poneo od kuće — bez struje i otvorenog plamena.
+              {t.footer.tagline}
             </p>
           </div>
 
-          <nav aria-label="Navigacija u podnožju">
-            <h2 className="text-sm uppercase tracking-widest text-primary-foreground">Stranica</h2>
+          <nav aria-label={t.footer.navAria}>
+            <h2 className="text-sm uppercase tracking-widest text-primary-foreground">
+              {t.footer.pageHeading}
+            </h2>
             <ul className="mt-4 flex flex-col gap-2.5">
               {links.map((link) => (
                 <li key={link.href}>
@@ -48,23 +53,23 @@ export function Footer() {
           </nav>
 
           <div>
-            <h2 className="text-sm uppercase tracking-widest text-primary-foreground">Kontakt</h2>
+            <h2 className="text-sm uppercase tracking-widest text-primary-foreground">
+              {t.footer.contactHeading}
+            </h2>
             <a
-              href="mailto:kontakt@zarklik.rs"
+              href={`mailto:${CONTACT_EMAIL}`}
               className="mt-4 inline-flex items-center gap-2 text-sm text-primary-foreground/85 transition-colors hover:text-primary-foreground"
             >
               <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
-              kontakt@zarklik.rs
+              {CONTACT_EMAIL}
             </a>
-            <p className="mt-4 text-sm text-primary-foreground/70">
-              Proizvod je u fazi validacije. Prijava interesovanja nije kupovina.
-            </p>
+            <p className="mt-4 text-sm text-primary-foreground/70">{t.footer.disclaimer}</p>
           </div>
         </div>
 
         <div className="mt-10 border-t border-primary-foreground/15 pt-6">
           <p className="text-xs text-primary-foreground/60">
-            © {new Date().getFullYear()} Žar Klik. Sva prava zadržana.
+            © {new Date().getFullYear()} Žar Klik. {t.footer.rights}
           </p>
         </div>
       </div>

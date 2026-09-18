@@ -1,9 +1,12 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/Reveal";
+import { useT } from "@/i18n/LanguageProvider";
 import productBox from "@/assets/product-box.png";
 
 export function Hero() {
+  const t = useT();
+
   return (
     <section id="pocetak" className="relative overflow-hidden pt-28 pb-14 sm:pt-32 lg:pt-36 lg:pb-20">
       <div
@@ -19,21 +22,19 @@ export function Hero() {
         <div>
           <Reveal>
             <p className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-card px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary shadow-soft">
-              Zagrejan obrok bilo kad i bilo gde
+              {t.hero.badge}
             </p>
           </Reveal>
 
           <Reveal delay={80}>
             <h1 className="mt-5 text-balance text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">
-              Topao domaći obrok, gde god da si.
+              {t.hero.title}
             </h1>
           </Reveal>
 
           <Reveal delay={160}>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-foreground/80">
-              Žar Klik je prenosiva posuda koja sama zagreva obrok koji si poneo od kuće — bez
-              struje, plamena i dodatne opreme. Zagrevanje pokreće jednokratni grejni dodatak,
-              a posudu koristiš više puta.
+              {t.hero.lead}
             </p>
           </Reveal>
 
@@ -41,11 +42,11 @@ export function Hero() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button asChild variant="hero" size="lg">
                 <a href="#prijava">
-                  Želim Žar Klik <ArrowRight />
+                  {t.hero.ctaPrimary} <ArrowRight />
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <a href="#cena">Vidi cenu</a>
+                <a href="#cena">{t.hero.ctaSecondary}</a>
               </Button>
             </div>
           </Reveal>
@@ -53,9 +54,7 @@ export function Hero() {
           <Reveal delay={320}>
             <div className="mt-8 max-w-md">
               <div aria-hidden="true" className="road-dashes h-[3px] w-full rounded-full" />
-              <p className="mt-4 text-sm font-medium text-foreground/70">
-                Prilagođeno putu. Jednostavno za upotrebu. Ne zavisi od lokacije.
-              </p>
+              <p className="mt-4 text-sm font-medium text-foreground/70">{t.hero.tagline}</p>
             </div>
           </Reveal>
         </div>
@@ -66,7 +65,7 @@ export function Hero() {
               src={productBox}
               width={707}
               height={506}
-              alt="Žar Klik prenosiva posuda za zagrevanje hrane sa poklopcem"
+              alt={t.hero.imageAlt}
               className="relative float-slow w-full drop-shadow-2xl"
               loading="eager"
             />
