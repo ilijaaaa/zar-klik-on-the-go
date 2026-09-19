@@ -4,14 +4,16 @@ import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useT } from "@/i18n/LanguageProvider";
-import exploded from "@/assets/exploded.png.asset.json";
+//import exploded from "@/assets/exploded.png.asset.json";
 import productBox from "@/assets/product-box.png";
-import cartridge from "@/assets/cartridge.png.asset.json";
+//import cartridge from "@/assets/cartridge.png.asset.json";
+import exploded from "@/assets/exploded.png";
+import cartridge from "@/assets/cartridge.png";
 
 export function ProductShowcase() {
   const t = useT();
   const [index, setIndex] = useState(0);
-  const galleryImages = [productBox, exploded.url, cartridge.url];
+  const galleryImages = [productBox, exploded/*.url*/, cartridge/*url*/];
   const gallery = t.showcase.gallery.map((item, itemIndex) => ({
     ...item,
     src: galleryImages[itemIndex] ?? productBox,
