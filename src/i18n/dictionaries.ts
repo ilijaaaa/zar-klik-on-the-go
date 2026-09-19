@@ -173,7 +173,7 @@ const sr = {
     text: "Stranica koju tražiš ne postoji ili je premeštena.",
     home: "Na početnu",
   },
-} as const;
+};
 
 type Dictionary = typeof sr;
 
