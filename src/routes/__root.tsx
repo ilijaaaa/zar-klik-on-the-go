@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Toaster } from "../components/ui/sonner";
+import { LanguageProvider } from "../i18n/LanguageProvider";
 
 
 function NotFoundComponent() {
@@ -79,18 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ŽAR KLIK" },
-      { name: "description", content: "Žar Klik is a portable food-heating container for on-the-go meals without electricity or open flame." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "ŽAR KLIK" },
-      { property: "og:description", content: "Žar Klik is a portable food-heating container for on-the-go meals without electricity or open flame." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "ŽAR KLIK" },
-      { name: "twitter:description", content: "Žar Klik is a portable food-heating container for on-the-go meals without electricity or open flame." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/745d7250-3213-4928-8e99-9f9aaa58e20f/id-preview-4b5f13fd--e022112a-6162-440e-8089-a31161849daf.lovable.app-1785783769159.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/745d7250-3213-4928-8e99-9f9aaa58e20f/id-preview-4b5f13fd--e022112a-6162-440e-8089-a31161849daf.lovable.app-1785783769159.png" },
     ],
     links: [
       {
@@ -107,7 +97,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="sr">
       <head>
         <HeadContent />
       </head>
@@ -124,9 +114,11 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
-      <Toaster position="top-center" />
+      <LanguageProvider>
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+        <Toaster position="top-center" />
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }

@@ -80,13 +80,6 @@ const sr = {
       submitting: "Šaljemo...",
       successTitle: "Prijava je poslata",
       successDescription: "Kontaktiraćemo te kada Žar Klik postane dostupan.",
-      pendingTitle: "Prijava je zabeležena",
-      pendingDescription:
-        "Slanje e-pošte još nije aktivirano, pa nas kontaktiraj direktno na zarklik.info@gmail.com.",
-      errorTitle: "Prijava nije poslata",
-      errorDescription: "Pokušaj ponovo ili nam piši na zarklik.info@gmail.com.",
-      invalidEmail: "Unesi ispravnu e-mail adresu.",
-      requiredName: "Unesi ime i prezime.",
     },
   },
   showcase: {
@@ -94,7 +87,7 @@ const sr = {
     lead:
       "Žar Klik čine posuda koja se koristi više puta i jednokratni grejni dodatak koji menjaš posle svakog zagrevanja.",
     explodedAlt:
-      "Rasklopljeni prikaz Žar Klik posude: poklopac, aluminijumska posuda, pregrada, grejni dodatak i baza",
+      "Rasklopljeni prikaz Žar Klik posude: poklopac, aluminijumska posuda, grejni dodatak i baza",
     parts: [
       { title: "Poklopac", text: "Uklonjivi poklopac zatvara posudu tokom nošenja i zagrevanja." },
       { title: "Aluminijumska posuda", text: "Deo u koji stavljaš obrok i iz kojeg jedeš." },
@@ -180,7 +173,7 @@ const sr = {
     text: "Stranica koju tražiš ne postoji ili je premeštena.",
     home: "Na početnu",
   },
-} as const;
+};
 
 type Dictionary = typeof sr;
 
@@ -258,13 +251,6 @@ const en: Dictionary = {
       submitting: "Sending...",
       successTitle: "Your request has been sent",
       successDescription: "We'll get in touch as soon as Žar Klik is available.",
-      pendingTitle: "Your request was recorded",
-      pendingDescription:
-        "Email delivery isn't active yet, so please reach us directly at zarklik.info@gmail.com.",
-      errorTitle: "Your request wasn't sent",
-      errorDescription: "Please try again or email us at zarklik.info@gmail.com.",
-      invalidEmail: "Please enter a valid email address.",
-      requiredName: "Please enter your full name.",
     },
   },
   showcase: {
@@ -272,7 +258,7 @@ const en: Dictionary = {
     lead:
       "Žar Klik consists of a reusable container and a single-use heating insert that you replace after every heating.",
     explodedAlt:
-      "Exploded view of the Žar Klik container: lid, aluminium tray, divider, heating insert and base",
+      "Exploded view of the Žar Klik container: lid, aluminium tray, heating insert and base",
     parts: [
       { title: "Lid", text: "The removable lid seals the container while carrying and heating." },
       { title: "Aluminium tray", text: "The part you put your meal in and eat from." },

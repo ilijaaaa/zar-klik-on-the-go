@@ -1,10 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { ProductShowcase } from "@/components/sections/ProductShowcase";
 import { Pricing } from "@/components/sections/Pricing";
 import { Faq } from "@/components/sections/Faq";
 import { Footer } from "@/components/sections/Footer";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 const title = "Žar Klik — zagrejan obrok bilo kad i bilo gde";
 const description =
@@ -25,6 +27,18 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const { t } = useLanguage();
+
+  useEffect(() => {
+    document.title = t.meta.title;
+    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    const ogTitle = document.querySelector<HTMLMetaElement>('meta[property="og:title"]');
+    const ogDescription = document.querySelector<HTMLMetaElement>('meta[property="og:description"]');
+    if (description) description.content = t.meta.description;
+    if (ogTitle) ogTitle.content = t.meta.title;
+    if (ogDescription) ogDescription.content = t.meta.description;
+  }, [t]);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
