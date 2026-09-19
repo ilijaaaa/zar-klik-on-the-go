@@ -1,5 +1,6 @@
 import { Mail } from "lucide-react";
-import logoMark from "@/assets/logo-mark.png.asset.json";
+//import logoMark from "@/assets/logo-mark.png.asset.json";
+import logoMark from "@/assets/logo-mark.png";
 import { useT } from "@/i18n/LanguageProvider";
 import { CONTACT_EMAIL } from "@/lib/contact-email";
 
@@ -19,7 +20,7 @@ export function Footer() {
           <div>
             <span className="flex items-center gap-2.5">
               <img
-                src={logoMark.url}
+                src={logoMark/*.url*/}
                 alt={t.logo.alt}
                 className="h-11 w-auto shrink-0"
                 loading="lazy"
