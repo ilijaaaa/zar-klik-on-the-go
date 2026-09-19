@@ -6,7 +6,6 @@ import { ProductShowcase } from "@/components/sections/ProductShowcase";
 import { Pricing } from "@/components/sections/Pricing";
 import { Faq } from "@/components/sections/Faq";
 import { Footer } from "@/components/sections/Footer";
-import { dictionaries } from "@/i18n/dictionaries";
 import { useLanguage } from "@/i18n/LanguageProvider";
 
 const title = "Žar Klik — zagrejan obrok bilo kad i bilo gde";
