@@ -3,38 +3,20 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useT } from "@/i18n/LanguageProvider";
 import exploded from "@/assets/exploded.png.asset.json";
 import productBox from "@/assets/product-box.png";
 import cartridge from "@/assets/cartridge.png.asset.json";
 
-const parts = [
-  { title: "Poklopac", text: "Uklonjivi poklopac zatvara posudu tokom nošenja i zagrevanja." },
-  { title: "Aluminijumska posuda", text: "Deo u koji stavljaš obrok i iz kojeg jedeš." },
-  { title: "Jednokratni dodatak", text: "Zatvoreno pakovanje sa CaO i vodom koje pokreće zagrevanje." },
-  { title: "Baza posude", text: "Nosi grejni deo i čini osnovu Žar Klik sistema." },
-];
-
-const gallery = [
-  {
-    src: productBox,
-    alt: "Zatvorena Žar Klik posuda sa poklopcem i logotipom",
-    caption: "Žar Klik posuda — zatvorena i spremna za nošenje",
-  },
-  {
-    src: exploded.url,
-    alt: "Rasklopljeni prikaz Žar Klik posude sa svim delovima",
-    caption: "Rasklopljeni prikaz svih delova sistema",
-  },
-  {
-    src: cartridge.url,
-    alt: "Pakovanje jednokratnog grejnog dodatka Žar Klik",
-    caption: "Jednokratni grejni dodatak u pakovanju",
-  },
-];
-
 export function ProductShowcase() {
+  const t = useT();
   const [index, setIndex] = useState(0);
-  const item = gallery[index]!;
+  const galleryImages = [productBox, exploded.url, cartridge.url];
+  const gallery = t.showcase.gallery.map((item, itemIndex) => ({
+    ...item,
+    src: galleryImages[itemIndex] ?? productBox,
+  }));
+  const item = gallery[index] ?? gallery[0];
 
   const go = (dir: number) => setIndex((i) => (i + dir + gallery.length) % gallery.length);
 
@@ -42,11 +24,8 @@ export function ProductShowcase() {
     <section id="proizvod" className="scroll-mt-24 py-14 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <Reveal className="max-w-2xl">
-          <h2 className="text-balance text-3xl sm:text-4xl lg:text-5xl">Šta dobijaš u kutiji</h2>
-          <p className="mt-4 text-base leading-relaxed text-foreground/75">
-            Žar Klik čine posuda koja se koristi više puta i jednokratni grejni dodatak koji menjaš
-            posle svakog zagrevanja.
-          </p>
+          <h2 className="text-balance text-3xl sm:text-4xl lg:text-5xl">{t.showcase.title}</h2>
+          <p className="mt-4 text-base leading-relaxed text-foreground/75">{t.showcase.lead}</p>
         </Reveal>
 
         <div className="mt-10 grid gap-8 lg:grid-cols-[0.95fr_1fr] lg:gap-12">
@@ -56,7 +35,7 @@ export function ProductShowcase() {
                 src={exploded.url}
                 width={1400}
                 height={1800}
-                alt="Rasklopljeni prikaz Žar Klik posude: poklopac, aluminijumska posuda, pregrada, grejni dodatak i baza"
+                alt={t.showcase.explodedAlt}
                 className="mx-auto max-h-[26rem] w-auto object-contain"
                 loading="lazy"
               />
@@ -65,7 +44,7 @@ export function ProductShowcase() {
 
           <div>
             <ul className="flex flex-col gap-3">
-              {parts.map((part, i) => (
+              {t.showcase.parts.map((part, i) => (
                 <Reveal as="li" key={part.title} delay={i * 70}>
                   <div className="flex items-start gap-4 rounded-2xl border border-border bg-card p-4 shadow-soft transition-colors hover:border-primary/40">
                     <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-primary font-display text-xs font-extrabold text-primary-foreground">
@@ -100,13 +79,13 @@ export function ProductShowcase() {
             </div>
 
             <div className="mt-4 grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3">
-              <Button variant="outline" size="icon" aria-label="Prethodna slika" onClick={() => go(-1)}>
+              <Button variant="outline" size="icon" aria-label={t.showcase.prev} onClick={() => go(-1)}>
                 <ChevronLeft />
               </Button>
               <p className="min-w-0 truncate text-center text-sm font-medium text-foreground/75">
-                {item.caption}
+                {item?.caption}
               </p>
-              <Button variant="outline" size="icon" aria-label="Sledeća slika" onClick={() => go(1)}>
+              <Button variant="outline" size="icon" aria-label={t.showcase.next} onClick={() => go(1)}>
                 <ChevronRight />
               </Button>
             </div>
@@ -116,7 +95,7 @@ export function ProductShowcase() {
                 <button
                   key={g.src}
                   type="button"
-                  aria-label={`Prikaži sliku ${i + 1}`}
+                  aria-label={`${t.showcase.showImage} ${i + 1}`}
                   aria-current={i === index}
                   onClick={() => setIndex(i)}
                   className={cn(

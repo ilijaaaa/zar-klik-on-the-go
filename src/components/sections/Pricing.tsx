@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { useT } from "@/i18n/LanguageProvider";
 import {
   Select,
   SelectContent,
@@ -16,40 +17,27 @@ import {
 import cartridge from "@/assets/cartridge.png.asset.json";
 import productBox from "@/assets/product-box.png";
 
-const plans = [
-  {
-    name: "Žar Klik posuda",
-    price: "1.300",
-    unit: "RSD",
-    note: "Jednokratna kupovina, višekratna upotreba",
-    image: productBox,
-    alt: "Žar Klik posuda za zagrevanje obroka",
-    icon: PackageCheck,
-    items: [
-      "Poklopac i aluminijumska posuda",
-      "Baza sa grejnim sistemom",
-    ],
-    featured: true,
-  },
-  {
-    name: "Grejni dodatak",
-    price: "70",
-    unit: "RSD",
-    note: "Jednokratni dodatak po zagrevanju",
-    image: cartridge.url,
-    alt: "Pakovanje jednokratnog grejnog dodatka",
-    icon: Repeat2,
-    items: [
-      "Sadrži kalcijum-oksid i vodu",
-      "Zatvoreno pakovanje, odvojeno od hrane",
-      "Menja se posle svakog obroka",
-    ],
-    featured: false,
-  },
-];
-
 export function Pricing() {
+  const t = useT();
   const [submitting, setSubmitting] = useState(false);
+  const plans = [
+    {
+      ...t.pricing.plans.box,
+      price: "1.300",
+      unit: "RSD",
+      image: productBox,
+      icon: PackageCheck,
+      featured: true,
+    },
+    {
+      ...t.pricing.plans.cartridge,
+      price: "70",
+      unit: "RSD",
+      image: cartridge.url,
+      icon: Repeat2,
+      featured: false,
+    },
+  ];
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -58,8 +46,8 @@ export function Pricing() {
     window.setTimeout(() => {
       setSubmitting(false);
       form.reset();
-      toast.success("Prijava je poslata", {
-        description: "Kontaktiraćemo te kada Žar Klik postane dostupan.",
+      toast.success(t.pricing.form.successTitle, {
+        description: t.pricing.form.successDescription,
       });
     }, 700);
   };
@@ -68,13 +56,8 @@ export function Pricing() {
     <section id="cena" className="scroll-mt-24 py-14 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <Reveal className="max-w-2xl">
-          <h2 className="text-balance text-3xl sm:text-4xl lg:text-5xl">
-            Cena i prijava interesovanja
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-foreground/75">
-            Posudu kupuješ jednom, a grejni dodatak menjaš po obroku. Prijava interesovanja nije
-            kupovina.
-          </p>
+          <h2 className="text-balance text-3xl sm:text-4xl lg:text-5xl">{t.pricing.title}</h2>
+          <p className="mt-4 text-base leading-relaxed text-foreground/75">{t.pricing.lead}</p>
         </Reveal>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
@@ -89,7 +72,7 @@ export function Pricing() {
                   <div className="min-w-0">
                     <span className="inline-flex items-center gap-2 rounded-full bg-card px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
                       <plan.icon className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-                      {plan.featured ? "Osnovni komplet" : "Dopuna"}
+                      {plan.featured ? t.pricing.badgeMain : t.pricing.badgeRefill}
                     </span>
                     <h3 className="mt-3 truncate text-xl">{plan.name}</h3>
                     <p className="mt-1 text-sm text-foreground/70">{plan.note}</p>
@@ -135,69 +118,62 @@ export function Pricing() {
               <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary text-primary-foreground">
                 <ShieldQuestion className="h-5 w-5" aria-hidden="true" />
               </span>
-              <h3 className="mt-5 text-2xl">Prijavi interesovanje</h3>
-              <p className="mt-3 text-sm leading-relaxed text-foreground/80">
-                Ostavi kontakt i budi među prvima koji dobijaju informaciju kada Žar Klik postane
-                dostupan. Bez obaveze kupovine.
-              </p>
-              <p className="mt-4 text-xs text-muted-foreground">
-                Podatke koristimo isključivo za kontakt u vezi sa dostupnošću proizvoda.
-              </p>
+              <h3 className="mt-5 text-2xl">{t.pricing.form.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-foreground/80">{t.pricing.form.lead}</p>
+              <p className="mt-4 text-xs text-muted-foreground">{t.pricing.form.privacy}</p>
             </div>
 
             <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2">
               <div className="grid gap-2">
-                <Label htmlFor="ime">Ime i prezime</Label>
-                <Input id="ime" name="ime" required autoComplete="name" placeholder="Marko Marković" />
+                <Label htmlFor="ime">{t.pricing.form.name}</Label>
+                <Input id="ime" name="ime" required autoComplete="name" placeholder={t.pricing.form.namePlaceholder} />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="email">E-mail</Label>
+                <Label htmlFor="email">{t.pricing.form.email}</Label>
                 <Input
                   id="email"
                   name="email"
                   type="email"
                   required
                   autoComplete="email"
-                  placeholder="marko@primer.rs"
+                  placeholder={t.pricing.form.emailPlaceholder}
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="telefon">Telefon (opciono)</Label>
+                <Label htmlFor="telefon">{t.pricing.form.phone}</Label>
                 <Input
                   id="telefon"
                   name="telefon"
                   type="tel"
                   autoComplete="tel"
-                  placeholder="+381 60 000 0000"
+                  placeholder={t.pricing.form.phonePlaceholder}
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="profil">Kako bi koristio Žar Klik?</Label>
+                <Label htmlFor="profil">{t.pricing.form.profile}</Label>
                 <Select name="profil">
                   <SelectTrigger id="profil">
-                    <SelectValue placeholder="Izaberi" />
+                    <SelectValue placeholder={t.pricing.form.profilePlaceholder} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="vozac">Profesionalni vozač</SelectItem>
-                    <SelectItem value="teren">Terenski rad</SelectItem>
-                    <SelectItem value="putovanja">Putovanja i kampovanje</SelectItem>
-                    <SelectItem value="posao">Radno mesto bez kuhinje</SelectItem>
-                    <SelectItem value="drugo">Drugo</SelectItem>
+                    {Object.entries(t.pricing.form.profileOptions).map(([value, label]) => (
+                      <SelectItem key={value} value={value}>{label}</SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </div>
               <div className="grid gap-2 sm:col-span-2">
-                <Label htmlFor="poruka">Poruka (opciono)</Label>
+                <Label htmlFor="poruka">{t.pricing.form.message}</Label>
                 <Textarea
                   id="poruka"
                   name="poruka"
                   rows={3}
-                  placeholder="Reci nam nešto o svojoj svakodnevici na putu."
+                  placeholder={t.pricing.form.messagePlaceholder}
                 />
               </div>
               <div className="sm:col-span-2">
                 <Button type="submit" variant="hero" size="lg" disabled={submitting}>
-                  {submitting ? "Šaljemo..." : "Pošalji prijavu"}
+                  {submitting ? t.pricing.form.submitting : t.pricing.form.submit}
                   <Send />
                 </Button>
               </div>
