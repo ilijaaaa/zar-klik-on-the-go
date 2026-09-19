@@ -14,7 +14,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import cartridge from "@/assets/cartridge.png.asset.json";
+//import cartridge from "@/assets/cartridge.png.asset.json";
+import cartridge from "@/assets/cartridge.png";
 import productBox from "@/assets/product-box.png";
 
 export function Pricing() {
@@ -33,7 +34,7 @@ export function Pricing() {
       ...t.pricing.plans.cartridge,
       price: "70",
       unit: "RSD",
-      image: cartridge.url,
+      image: cartridge/*.url*/,
       icon: Repeat2,
       featured: false,
     },
