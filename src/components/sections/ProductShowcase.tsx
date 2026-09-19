@@ -34,7 +34,7 @@ export function ProductShowcase() {
           <Reveal>
             <div className="relative overflow-hidden rounded-[2rem] border border-border surface-warm p-6 shadow-soft sm:p-8">
               <img
-                src={exploded.url}
+                src={exploded/*.url*/}
                 width={1400}
                 height={1800}
                 alt={t.showcase.explodedAlt}
